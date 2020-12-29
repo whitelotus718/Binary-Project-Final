@@ -28,7 +28,7 @@ return arr
 //      b   c
 //    d  e    f
 //  1  2 3 4
-        
+
 // left self right
 function inOrderArray(root, arr = []) {
   if (!root) return [];
@@ -39,7 +39,19 @@ function inOrderArray(root, arr = []) {
 }
 
 function postOrderArray(root) {
+  if (!root) return [];
 
+  const resultArr = [];
+  const stackArr = [root];
+
+  while(stackArr.length) {
+    let ele = stackArr.pop();
+    resultArr.push(ele.val);
+
+    if(ele.right) stackArr.push(ele.right);
+    if(ele.left) stackArr.push(ele.left);
+  }
+  return resultArr;
 }
 
 
