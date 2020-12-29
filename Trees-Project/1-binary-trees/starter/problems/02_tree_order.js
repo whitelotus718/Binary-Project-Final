@@ -41,17 +41,11 @@ function inOrderArray(root, arr = []) {
 function postOrderArray(root) {
   if (!root) return [];
 
-  const resultArr = [];
-  const stackArr = [root];
-
-  while(stackArr.length) {
-    let ele = stackArr.pop();
-    resultArr.push(ele.val);
-
-    if(ele.right) stackArr.push(ele.right);
-    if(ele.left) stackArr.push(ele.left);
-  }
-  return resultArr;
+  return [
+    ...postOrderArray(root.left),
+    ...postOrderArray(root.right),
+    root.val
+  ]
 }
 
 
