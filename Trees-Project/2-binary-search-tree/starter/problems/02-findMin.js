@@ -1,6 +1,5 @@
 function findMin(tree) {
 	if (!tree) return null;
-	if (!tree.left) return tree;
 	if (!tree.left || !(tree.left || tree.right)) return tree;
 
 	let currentNode = tree.left;
